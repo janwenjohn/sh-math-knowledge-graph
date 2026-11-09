@@ -1,0 +1,52 @@
+数学知识探索平台 (Math Knowledge Explorer) · 个人学习与非商业开源许可协议
+Personal & Non-Commercial Open Source License
+
+Copyright (c) 2026 Math Knowledge Explorer Project Contributors. All Rights Reserved.
+
+================================================================================
+第一部分：中文授权条款（个人学习与非商业使用许可）
+================================================================================
+
+1. 授权范围（允许的行为）
+   在不违反本协议第 2 条（商业限制）及第 3 条（署名与完整性要求）的前提下，特此免费授予任何个人（包括学生、家长、一线教师及个人技术研究者）一项非排他性、不可转让、全球范围内的许可：
+   (a) 下载、安装并在个人本地设备上运行本软件系统；
+   (b) 浏览、检索、学习本项目内置的知识图谱、考纲融合数据与同步练习题库；
+   (c) 使用本系统的组卷与打印功能，为个人或家庭成员生成、打印纸质练习卷或导出 PDF 供个人学习使用；
+   (d) 出于个人技术研究、缺陷修复或向原仓库提交贡献（Issue / Pull Request）之目的，阅读、修改或分析本项目源代码。
+
+2. 严禁商业用途（Commercial Use Strictly Prohibited）
+   未经项目版权所有人事前书面明确授权，严禁任何个人、企业、组织或机构将本项目的全部或任何部分（包括但不限于源代码、前端界面、知识图谱 JSON 数据、考纲融合映射表、AI 生成题库、配图及由本系统导出的试卷/PDF）用于任何商业目的或变相商业活动，包括但不限于：
+   (a) 直接或间接售卖：严禁在淘宝、闲鱼、拼多多、京东、小红书、抖音、微信群、知识星球等任何线上或线下渠道售卖本项目程序包、安装服务、内置数据或打印导出的练习卷；
+   (b) 商业教培与机构经营：严禁任何商业教育培训机构、课外辅导班、托管机构、收费自习室、工作室、出版商或商业公司在教学服务、商业培训、商业产品研发或内部经营系统中使用、部署或分发本项目；
+   (c) 商业引流与捆绑营销：严禁将本项目或其衍生内容作为付费课程、付费社群、付费咨询、硬件设备或纸质资料的赠品、福利包或商业营销工具；
+   (d) 云端商业化托管：严禁将本项目部署于公网服务器以提供收费、含广告、需付费会员或商业赞助的在线 SaaS / 小程序 / 网站服务。
+
+3. 署名、完整性与数据共享要求（CC BY-NC-SA 4.0）
+   (a) 本项目内置的结构化知识图谱、考纲融合数据与题库配图资源同时受《知识共享 署名-非商业性使用-相同方式共享 4.0 国际许可协议》（CC BY-NC-SA 4.0）保护；
+   (b) 任何非商业性质的转载、演示或分发，必须完整保留本许可协议文件（LICENSE）、免责声明及系统界面中的原作者署名，不得抹除、遮挡或篡改版权标识，亦不得将本项目伪装成二次分发者的原创商业产品。
+
+4. 免责与无担保声明（Disclaimer of Warranty）
+   本项目按“原样（AS IS）”提供，不附带任何明示或暗示的担保。包内知识拆解、考纲对齐分析及试题解析均由 AI 辅助生成，仅供家庭个人学习参考，不代表任何官方出版机构或考试主管部门立场。在任何情况下，项目作者或贡献者均不对因使用或无法使用本软件及数据而产生的任何直接、间接、偶然或后果性损害承担责任。
+
+================================================================================
+Part II: English License Terms (Personal & Non-Commercial Use Only)
+================================================================================
+
+1. Grant of Personal, Non-Commercial License
+   Subject to the terms and conditions of this License, the Licensor hereby grants to any individual person a free, worldwide, non-exclusive, non-transferable, revocable license to download, execute, and use the Software and its accompanying datasets (Knowledge Graph, Syllabus Fusion Data, and AI-Reconstructed Question Bank) solely for personal, private educational, or non-commercial academic research purposes.
+
+2. Strict Prohibition of Commercial Use
+   You may NOT, without prior written permission from the Copyright Holder, use, copy, modify, distribute, host, or exploit the Software or its datasets (including printed or exported worksheets/PDFs) for any commercial purpose or monetary compensation. Prohibited commercial uses include, without limitation:
+   (a) Selling, leasing, or charging fees for the Software, its datasets, installation services, or printed/exported papers on any marketplace or social platform;
+   (b) Using or deploying the Software or its datasets within any commercial tutoring center, educational training institution, cram school, commercial studio, publishing house, or for-profit enterprise;
+   (c) Bundling the Software or its datasets as a promotional giveaway, lead magnet, or bonus for paid courses, paid memberships, or commercial products;
+   (d) Hosting the Software as a public or commercial web service, mini-program, or SaaS platform.
+
+3. Attribution and ShareAlike (CC BY-NC-SA 4.0 for Content Datasets)
+   All structured educational datasets, knowledge graphs, syllabus mappings, and figures under `content/` are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0). You must retain all copyright, attribution, and disclaimer notices intact.
+
+4. Third-Party Open Source Components
+   This distribution bundles KaTeX (`apps/knowledge_review/portal/web/vendor/katex/`), which is licensed under the MIT License (Copyright (c) 2013-2020 Khan Academy and other contributors). See `apps/knowledge_review/portal/web/vendor/katex/LICENSE` for full terms.
+
+5. Limitation of Liability
+   THE SOFTWARE AND CONTENT ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OF ITS EDUCATIONAL CONTENT.

@@ -1,0 +1,31 @@
+# Local runtime state & SQLite databases
+.local/
+agent/
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-wal
+
+# Python bytecode & caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS & Editor metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs & local environment
+*.log
+.env
+.env.*
