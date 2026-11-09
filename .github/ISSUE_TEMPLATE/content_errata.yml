@@ -1,0 +1,42 @@
+name: 📝 题目或知识点勘误反馈 (Content Errata)
+description: 发现知识点表述、考纲映射、题干、配图或参考答案解析存在错误？欢迎提交勘误！
+title: "[勘误] 6A数学 - "
+labels: ["content-errata", "help-wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您帮助完善「数学知识探索平台」！提交前可先查阅根目录的 `KNOWN_ISSUES.md` 确认是否已在已知列表中。
+  - type: dropdown
+    id: category
+    attributes:
+      label: 勘误所属模块
+      options:
+        - 知识卡片正文 / 重点与易错点辨析
+        - 考纲融合扩展 / 跨库关联关系
+        - 配套练习题干 / 选项 / 几何配图
+        - 参考答案 / 解题过程解析
+    validations:
+      required: true
+  - type: input
+    id: target_id
+    attributes:
+      label: 知识点名称/ID 或 题目编号
+      description: 例如：`有理数加法法则 (MATH2-G6A-K000001)` 或 `AI数学练习 · 6A 第 14 题`
+      placeholder: "请填写具体的知识点名称或题号"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 错误内容描述
+      description: 请描述当前页面显示的错误内容（可粘贴文字或上传截图）
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议修正内容及数学依据
+      description: 您认为正确的答案、算理或表述应该是什么？
+    validations:
+      required: true

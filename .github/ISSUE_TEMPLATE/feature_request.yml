@@ -1,0 +1,37 @@
+name: 🌟 新年级/新学科/题库与功能许愿池 (Feature & Content Request)
+description: 希望尽快上线 6B、7A~9B、物理化学英语，或者需要更多专项题库与练习功能？告诉我们！
+title: "[许愿] "
+labels: ["enhancement", "user-wish"]
+body:
+  - type: dropdown
+    id: grade
+    attributes:
+      label: 您家小朋友目前所在的年级（上海五四制）
+      options:
+        - 六年级（预初 6A / 6B）
+        - 七年级（初一 7A / 7B）
+        - 八年级（初二 8A / 8B）
+        - 九年级（初三 9A / 9B）
+        - 五年级（小升初衔接）
+        - 教师 / 开发者 / 其他
+    validations:
+      required: true
+  - type: checkboxes
+    id: subjects
+    attributes:
+      label: 您最期待后续优先更新哪些学科或内容？
+      options:
+        - label: 六年级下学期（6B）数学知识库与题库
+        - label: 七年级（7A / 7B）数学知识库与题库
+        - label: 八年级 / 九年级数学与中考总复习
+        - label: 初中物理 / 化学知识图谱与题库
+        - label: 初中英语 / 语文核心知识库
+        - label: 更多梯度精品题库、阶段测试卷与压轴题专项
+        - label: 智能薄弱点诊断与个性化进阶练习通道
+  - type: textarea
+    id: details
+    attributes:
+      label: 具体需求或使用场景描述
+      placeholder: 请分享您在辅导孩子或日常使用中最希望增加的功能或题库类型...
+    validations:
+      required: true

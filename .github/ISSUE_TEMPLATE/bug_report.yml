@@ -1,0 +1,29 @@
+name: 🐛 系统运行异常反馈 (Bug Report)
+description: 启动服务报错、页面无法打开、公式渲染异常或打印排版错位？请在此反馈。
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统环境
+      options:
+        - Windows 10 / 11
+        - macOS (Apple Silicon / Intel)
+        - Linux
+    validations:
+      required: true
+  - type: input
+    id: env_info
+    attributes:
+      label: Python 版本与浏览器版本
+      placeholder: 例如：Python 3.11.5 + Chrome 130
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 问题复现步骤与终端报错日志
+      description: 请粘贴命令行窗口输出的报错信息或附上浏览器截图
+    validations:
+      required: true
