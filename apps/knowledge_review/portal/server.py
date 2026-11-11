@@ -63,7 +63,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.reply({'error': '数学大脑 V0.1 仅供维护源的自有版本机预览'}, 403)
             import brain_bridge
             return brain_bridge.route(self)
-        if path in ('/math-brain', '/math-brain/', '/math-brain/app.js', '/math-brain/styles.css', '/math-brain/math-render.js', '/math-brain/review.js', '/math-brain/model-config.js', '/math-brain/message-renderer.js', '/math-brain/markdown-it.js'):
+        if path in ('/math-brain', '/math-brain/', '/math-brain/app.js', '/math-brain/styles.css', '/math-brain/math-render.js', '/math-brain/review.js', '/math-brain/model-config.js', '/math-brain/message-renderer.js', '/math-brain/markdown-it.js', '/math-brain/history-sidebar.js', '/math-brain/import-preview.js', '/math-brain/wrong-library.js', '/math-brain/progress-stream.js'):
             if not self.server.math_brain_enabled:
                 return self.reply({'error': '数学大脑 V0.1 仅供自有版本机预览'}, 403)
             import brain_bridge
@@ -127,7 +127,7 @@ class Handler(BaseHTTPRequestHandler):
             if file.is_relative_to(vendor) and file.is_file() and file.suffix in ('.js', '.css', '.woff2'):
                 return self.file_reply(file)
             return self.reply({'error': '资源不存在'}, 404)
-        static = {'/': 'index.html', '/app.js': 'app.js', '/knowledge-math.js': 'knowledge-math.js', '/styles.css': 'styles.css', '/practice.js': 'practice.js', '/practice.css': 'practice.css'}
+        static = {'/': 'index.html', '/app.js': 'app.js', '/knowledge-math.js': 'knowledge-math.js', '/styles.css': 'styles.css', '/practice.js': 'practice.js', '/practice.css': 'practice.css', '/robots.txt': 'robots.txt', '/sitemap.xml': 'sitemap.xml'}
         if path not in static:
             return self.reply({'error': '资源不存在'}, 404)
         return self.file_reply(WEB / static[path])
@@ -202,6 +202,8 @@ class Handler(BaseHTTPRequestHandler):
             import brain_bridge
             return brain_bridge.route(self)
         self.reply({'error': '接口不存在'}, 404)
+
+    do_PATCH = do_PUT
 
 
 def make_server(port=8782, db=None, preview=True, fusion_enabled=True, profile=None):

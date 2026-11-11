@@ -1,13 +1,12 @@
-# community 0.3.0
+# community 0.3.1
 
-相对 0.2.0 的公开文件变化。
+相对 0.3.0 的公开文件变化。
 
 ## 本次说明
 
-- 全量去除外部出版物与来源暗示：题库目录、文件名、题目 ID、溯源字段与配图前缀均改为中性命名。
-- 前端统一为“配套练习 / 全部题集 / 思路分析 / 解题解析 / 考纲”，并移除维护侧书号与栏目映射。
-- 说明文档改用客观表述，界面截图在文案清洗后重新截取。
-- 构建流水线新增零版权暗示审计：路径与文本命中禁词即阻断发行。
+- README 新增在线预览入口。
+- 首页补齐 SEO 基础信息：站点标题、描述、关键词、Open Graph 与 canonical 标签。
+- 新增 robots.txt 与 sitemap.xml，并在服务端静态白名单放行两个文件。
 
 已知数学内容疑点见 KNOWN_ISSUES.md，技术校验不代替人工审核。
 
@@ -20,12 +19,8 @@
 
 ## 变更文件
 
-- content/knowledge_graph/1.数学/6a/fusion_release_v01.json
-- content/knowledge_graph/1.数学/6a/g6a_question_knowledge_v01.json
-- content/question_bank/ai_generated/1.数学/6a/set_g6a_01/assets.json
-- content/question_bank/ai_generated/1.数学/6a/set_g6a_01/difficulty.json
-- content/question_bank/ai_generated/1.数学/6a/set_g6a_01/questions.json
+- 无
 
 ## 移除文件
 
-本次调整移除了 38 个旧路径（含内部编号），内容已在新路径下重新发布。
+本次调整移除了 352 个旧路径（含内部编号），内容已在新路径下重新发布。
