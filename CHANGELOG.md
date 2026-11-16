@@ -1,12 +1,12 @@
-# community 0.3.1
+# community 0.3.2
 
-相对 0.3.0 的公开文件变化。
+相对 0.3.1 的公开文件变化。
 
 ## 本次说明
 
-- README 新增在线预览入口。
-- 首页补齐 SEO 基础信息：站点标题、描述、关键词、Open Graph 与 canonical 标签。
-- 新增 robots.txt 与 sitemap.xml，并在服务端静态白名单放行两个文件。
+- 根路径 / 改为宣传落地页，知识库应用移至 /app（应用内 hash 路由与绝对资源路径不变）。
+- 落地页保留原有分享标签与 canonical，并新增 hash 跳转脚本：旧链接 /#view=... 自动转到 /app#view=...。
+- 服务端静态白名单新增 landing.html 与 app.html，版本号替换只作用于应用页。
 
 已知数学内容疑点见 KNOWN_ISSUES.md，技术校验不代替人工审核。
 
@@ -19,8 +19,14 @@
 
 ## 变更文件
 
-- 无
+- apps/knowledge_review/portal/src/catalog.py
+- apps/knowledge_review/portal/src/fusion.py
+- apps/knowledge_review/portal/src/practice.py
+- apps/knowledge_review/portal/src/resources.py
+- apps/knowledge_review/portal/src/server.py
+- apps/knowledge_review/portal/web/app.html
+- apps/knowledge_review/portal/web/landing.html
 
 ## 移除文件
 
-本次调整移除了 352 个旧路径（含内部编号），内容已在新路径下重新发布。
+本次调整移除了 6 个旧路径，内容已在新路径下发布。

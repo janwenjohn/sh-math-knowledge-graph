@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 import re
 
-GRAPH = Path(__file__).resolve().parents[3] / 'content' / 'knowledge_graph'
+GRAPH = Path(__file__).resolve().parents[4] / 'content' / 'knowledge_graph'
 SYLLABUS_DIR = GRAPH / '1.数学' / '考纲'
 INTEGRATION = SYLLABUS_DIR / 'syllabus_g6a_integration_v01.json'
 EXAMPLES = SYLLABUS_DIR / 'syllabus_g6a_examples_v01.json'
@@ -396,4 +396,4 @@ def examples_decisions():
 
 
 def asset_root():
-    return Path(__file__).resolve().parents[3] / 'content' / 'question_bank' / 'official' / '1.数学' / '考纲' / 'assets'
+    return Path(__file__).resolve().parents[4] / 'content' / 'question_bank' / 'official' / '1.数学' / '考纲' / 'assets'

@@ -1,10 +1,8 @@
-# 数学知识探索平台 · Community 0.3.1
-
-[在线预览](https://www.heartlifes.com)
+# 数学知识探索平台 · Community 0.3.2
 
 本项目是一个面向上海五四学制初中阶段（六年级起点）的本地化数学知识检索、考纲对照与配套练习系统。系统后端基于 Python 3.10+ 标准库实现，前端内置离线版 KaTeX 数学公式渲染组件，无需安装第三方运行依赖，可在本地浏览器中离线运行。
 
-当前发行版本（`community 0.3.1`）收录了**六年级第一学期（6A）数学**的知识图谱、考纲融合映射及原创配套练习题集。后续版本将按照上海五四学制逐步补充后续学期（6B、7A–9B）及其他学科内容，并持续更新练习资源与功能模块。
+当前发行版本（`community 0.3.2`）收录了**六年级第一学期（6A）数学**的知识图谱、考纲融合映射及原创配套练习题集。后续版本将按照上海五四学制逐步补充后续学期（6B、7A–9B）及其他学科内容，并持续更新练习资源与功能模块。
 
 ## 一、内容范围与数据构成
 
@@ -182,7 +180,7 @@
   双击 `start.command` 或在终端执行 `./start.sh`，也可直接运行以下命令行：
 
 ```bash
-python3 apps/knowledge_review/portal/server.py --state-dir .local --port 8782
+python3 apps/knowledge_review/portal/src/server.py --state-dir .local --port 8782
 ```
 
 ### 3. 命令行参数
@@ -207,11 +205,11 @@ python3 apps/knowledge_review/portal/server.py --state-dir .local --port 8782
 | `KNOWN_ISSUES.md` | 已知数学内容与解析自检问题记录 |
 | `LICENSE` | 个人学习与非商业使用许可协议文本 |
 | `CONTRIBUTING.md` | 内容勘误与问题反馈说明 |
-| `apps/knowledge_review/portal/server.py` | 本地 HTTP 服务端入口与 API 路由实现 |
-| `apps/knowledge_review/portal/catalog.py` | 知识图谱数据结构与引用完整性校验模块 |
-| `apps/knowledge_review/portal/fusion.py` | 6A 知识图谱与考纲数据跨库融合只读投影模块 |
-| `apps/knowledge_review/portal/practice.py` | 题集加载、难度配比、随机组卷与配图资源只读适配模块 |
-| `apps/knowledge_review/portal/resources.py` | 发行版只读资源与 SHA-256 完整性校验加载器 |
+| `apps/knowledge_review/portal/src/server.py` | 本地 HTTP 服务端入口与 API 路由实现 |
+| `apps/knowledge_review/portal/src/catalog.py` | 知识图谱数据结构与引用完整性校验模块 |
+| `apps/knowledge_review/portal/src/fusion.py` | 6A 知识图谱与考纲数据跨库融合只读投影模块 |
+| `apps/knowledge_review/portal/src/practice.py` | 题集加载、难度配比、随机组卷与配图资源只读适配模块 |
+| `apps/knowledge_review/portal/src/resources.py` | 发行版只读资源与 SHA-256 完整性校验加载器 |
 | `apps/knowledge_review/portal/web/` | 前端静态资源（`index.html`、`app.js`、`practice.js`、`knowledge-math.js`、样式表及内置 `vendor/katex/`） |
 | `content/knowledge_graph/1.数学/6a/` | 6A 数学公开知识图谱（`math_g6a_public_v04.json`）、考纲融合快照（`fusion_release_v01.json`）与题-点关联表（`g6a_question_knowledge_v01.json`） |
 | `content/question_bank/ai_generated/1.数学/6a/set_g6a_01/` | 6A 数学 AI 生成练习题集 JSON（`questions.json`）、难度标注文件（`difficulty.json`）及 159 张题目配图（PNG/SVG） |

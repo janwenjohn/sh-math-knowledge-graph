@@ -11,8 +11,14 @@ from urllib.parse import parse_qs, urlsplit
 import fusion
 import practice
 
-ROOT = Path(__file__).resolve().parents[3]
-WEB = Path(__file__).parent / 'web'
+ROOT = Path(__file__).resolve().parents[4]
+WEB = Path(__file__).parent.parent / 'web'
+# 应用页脚本全部同源；落地页是单文件自包含页面，需要自身的内联脚本与 Google Fonts。
+CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'"
+LANDING_CSP = ("default-src 'self'; script-src 'self' 'unsafe-inline'; "
+               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+               "font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; "
+               "frame-ancestors 'none'; base-uri 'none'")
 DATA = ROOT / 'content' / 'knowledge_graph'
 # 运行数据一律写在程序根目录的 .local/；发行包与维护源共用这一约定，源码不含内部任务路径。
 RUN = ROOT / '.local'
@@ -33,12 +39,12 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(raw)
 
-    def headers_out(self, content):
+    def headers_out(self, content, csp=None):
         self.send_header('Content-Type', content)
         self.send_header('Cache-Control', 'no-store')
         self.send_header('X-Content-Type-Options', 'nosniff')
         self.send_header('Referrer-Policy', 'same-origin')
-        self.send_header('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'")
+        self.send_header('Content-Security-Policy', csp or CSP)
 
     def session(self):
         return None
@@ -120,14 +126,14 @@ class Handler(BaseHTTPRequestHandler):
                 return self.reply([r for r in data['relations'] if not q.get('point') or q['point'] in (r['fromId'], r['toId'])])
             return self.reply({'nodes': [{'id': p['id'], 'label': p['name'], 'topicId': p['topicId'], 'sequenceIds': p['sequenceIds']} for p in data['points']], 'edges': data['relations']})
         if path.startswith('/katex/'):
-            vendor = (Path(__file__).parent / 'web/vendor/katex').resolve()
+            vendor = (Path(__file__).parent.parent / 'web/vendor/katex').resolve()
             if not vendor.exists():
                 vendor = (ROOT / 'apps/practice_review/web/vendor/katex').resolve()
             file = (vendor / path.removeprefix('/katex/')).resolve()
             if file.is_relative_to(vendor) and file.is_file() and file.suffix in ('.js', '.css', '.woff2'):
                 return self.file_reply(file)
             return self.reply({'error': '资源不存在'}, 404)
-        static = {'/': 'index.html', '/app.js': 'app.js', '/knowledge-math.js': 'knowledge-math.js', '/styles.css': 'styles.css', '/practice.js': 'practice.js', '/practice.css': 'practice.css', '/robots.txt': 'robots.txt', '/sitemap.xml': 'sitemap.xml'}
+        static = {'/': 'landing.html', '/app': 'app.html', '/app.js': 'app.js', '/knowledge-math.js': 'knowledge-math.js', '/styles.css': 'styles.css', '/practice.js': 'practice.js', '/practice.css': 'practice.css', '/robots.txt': 'robots.txt', '/sitemap.xml': 'sitemap.xml'}
         if path not in static:
             return self.reply({'error': '资源不存在'}, 404)
         return self.file_reply(WEB / static[path])
@@ -186,10 +192,11 @@ class Handler(BaseHTTPRequestHandler):
 
     def file_reply(self, file):
         raw = file.read_bytes()
-        if file.name == 'index.html':
+        if file.name == 'app.html':
             raw = raw.replace(b'__EDITION__', self.server.edition.encode()).replace(b'<!--EDITION_SCRIPTS-->', b'<script src="/owner.js" defer></script>' if self.server.owner_enabled else b'')
         self.send_response(200)
-        self.headers_out(mimetypes.guess_type(file.name)[0] or 'application/octet-stream')
+        self.headers_out(mimetypes.guess_type(file.name)[0] or 'application/octet-stream',
+                         LANDING_CSP if file.name == 'landing.html' else None)
         self.send_header('Content-Length', str(len(raw)))
         self.end_headers()
         self.wfile.write(raw)
@@ -235,7 +242,7 @@ def make_server(port=8782, db=None, preview=True, fusion_enabled=True, profile=N
     server.sessions, server.attempts = {}, []
     server.lock = threading.Lock()
     server.practice_cache = {}
-    server.math_brain_enabled = owner_enabled and preview and not manifest and (Path(__file__).parent.parent / 'math_brain/web/index.html').is_file()
+    server.math_brain_enabled = owner_enabled and preview and not manifest and (Path(__file__).parent.parent.parent / 'math_brain/web/index.html').is_file()
     if server.math_brain_enabled:
         import brain_bridge
         server.brain_bridge = brain_bridge.Bridge(server)

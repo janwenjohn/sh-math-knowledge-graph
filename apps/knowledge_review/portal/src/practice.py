@@ -7,7 +7,7 @@ from urllib.parse import urlencode
 
 from catalog import digest_matches
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[4]
 BANK = ROOT / 'content/question_bank'
 GRAPH = ROOT / 'content/knowledge_graph'
 # 例题 is not a graded tier: the syllabus resource is ungraded, so it sorts after the three
