@@ -56,3 +56,12 @@ main[data-view=catalog]{min-height:0;overflow:hidden;flex:1}
 /* AI content notice remains readable on narrow screens. */
 #policy{max-width:42rem;white-space:normal;font-size:.75rem;line-height:1.5;}
 footer{flex-wrap:wrap;gap:1rem;}
+
+/* Header contact: keep contact details visible in the app header at all widths. */
+.hdr-contact{margin-left:18px;font-size:11px;line-height:1.25;color:var(--muted);white-space:nowrap}
+.hdr-contact a{color:var(--blue);text-decoration:none}
+.hdr-contact a:hover{text-decoration:underline}
+.hdr-contact .sep{color:#c2ccdd}
+@media(max-width:1100px){.hdr-contact{white-space:normal;max-width:210px;margin-left:10px}}
+@media(max-width:850px){.hdr-contact{flex:1 1 100%;max-width:none;margin-left:0}}
+@media(max-width:520px){.hdr-contact{font-size:10.5px}}
